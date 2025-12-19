@@ -1,1 +1,2 @@
-# mlid_inference
+# ancestor-inference
+comparing different ancestor inference method

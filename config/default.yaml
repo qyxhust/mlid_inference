@@ -1,0 +1,37 @@
+project:
+  seed: 42
+  simulate_label: "/space/s1/qyx/data/simulate/labels.tsv"
+  simulate_vcfs: "/space/s1/qyx/data/simulate/truth.vcf.gz"
+  simulate_vcf_idx: "/space/s1/qyx/data/simulate/truth.vcf.gz.tbi"
+
+  reads_root : "/space/s1/qyx/data/reads"
+
+  ref_haps: "/space/s1/qyx/data/ref_haps.fa"
+  ref_genome: "/space/s1/qyx/data/reference.fa"
+  ref_samples: "/space/s1/qyx/data/ref_samples.csv"
+  test_samples: "/space/s1/qyx/data/test_samples.csv"
+
+  align_root: "/space/s1/qyx/data/align"
+
+  # 结果输出配置 (中央存储位置)
+  final_result_csv: "/space/s1/qyx/data/final_result.csv"
+  
+  # 本次运行的批次名称 (生成 visuals 用)
+  result_base: "results"
+  run_name: "mlid_hard_truth" 
+
+msprime:
+  N_perpop: 100
+  ploidy: 2
+  seed: 42
+  left: 0
+  l: 400000
+  model: "hudson"
+
+reads:
+  read_len: 150
+  err: 0.001
+  insert_mean: 350
+  insert_sd: 35
+  l: 300000      # 可省略，默认用 msprime.l
+  depth: 1

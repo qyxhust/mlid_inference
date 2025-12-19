@@ -1,0 +1,26 @@
+
+# Ignore tools folder (external binaries, large files)
+tools/
+
+# Ignore data and results
+data/
+results/
+reads/
+output/
+
+# Ignore large bioinformatics files
+*.bam
+*.sam
+*.fastq
+*.fq
+*.vcf
+*.fai
+*.idx
+
+# Python related
+__pycache__/
+*.pyc
+
+# MacOS junk files
+.DS_Store
+
