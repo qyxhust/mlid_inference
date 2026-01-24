@@ -6,7 +6,7 @@ import subprocess
 
 ROOT = Path(__file__).resolve().parent.parent
 if str(ROOT) not in sys.path:
-sys.path.insert(0, str(ROOT))
+    sys.path.insert(0, str(ROOT))
 
 from src.admixture import GATKRunner
 from src.ohana import ANGSDRunner, OhanaRunner
@@ -25,7 +25,7 @@ def run_ohana_pipeline(model_type="hard", supervised=True):
         data_root = Path(cfg["project"].get("data_root", "/space/s1/qyx/data"))
         ref_fasta = data_root / "reference.fa"
         if not ref_fasta.exists():
-        ref_fasta = Path(cfg["project"]["ref_haps"])
+            ref_fasta = Path(cfg["project"]["ref_haps"])
     
     use_realigned = True # Always use realigned if possible, or generate it
     print(f"[INFO] Using reference genome: {ref_fasta}")

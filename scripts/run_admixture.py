@@ -52,9 +52,9 @@ def run_admixture_pipeline(model_type="hard"):
     # We remove the complex logic about "use_realigned" vs "ref_haps.fa".
     
     bowtie2_index = str(ref_fasta).rsplit(".", 1)[0]
-        if not Path(bowtie2_index + ".1.bt2").exists():
-            print("[INFO] Building Bowtie2 index for reference.fa...")
-            subprocess.run(["bowtie2-build", str(ref_fasta), bowtie2_index], check=True)
+    if not Path(bowtie2_index + ".1.bt2").exists():
+        print("[INFO] Building Bowtie2 index for reference.fa...")
+        subprocess.run(["bowtie2-build", str(ref_fasta), bowtie2_index], check=True)
 
     # 2. Collect Samples
     test_samples_csv = cfg["project"]["test_samples"]
@@ -77,7 +77,7 @@ def run_admixture_pipeline(model_type="hard"):
     gvcfs = []
     for sample_name in test_samples:
         # Step A: Align to get BAM (always align to reference.fa)
-            bam_path = runner.realign_sample(sample_name, reads_root, bowtie2_index)
+        bam_path = runner.realign_sample(sample_name, reads_root, bowtie2_index)
 
         if not bam_path:
             continue
